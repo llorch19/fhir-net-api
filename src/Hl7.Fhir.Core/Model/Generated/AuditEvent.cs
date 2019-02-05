@@ -165,7 +165,7 @@ namespace Hl7.Fhir.Model
             N5,
         }
 
-        [FhirType("EventComponent")]
+        [FhirType("EventComponent", ConstraintPath = "AuditEvent.event")]
         [DataContract]
         public partial class EventComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -439,7 +439,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ParticipantComponent")]
+        [FhirType("ParticipantComponent", ConstraintPath = "AuditEvent.participant")]
         [DataContract]
         public partial class ParticipantComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -789,7 +789,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("NetworkComponent")]
+        [FhirType("NetworkComponent", ConstraintPath = "AuditEvent.participant.network")]
         [DataContract]
         public partial class NetworkComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -931,7 +931,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SourceComponent")]
+        [FhirType("SourceComponent", ConstraintPath = "AuditEvent.source")]
         [DataContract]
         public partial class SourceComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1074,7 +1074,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ObjectComponent")]
+        [FhirType("ObjectComponent", ConstraintPath = "AuditEvent.object")]
         [DataContract]
         public partial class ObjectComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1383,7 +1383,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("DetailComponent")]
+        [FhirType("DetailComponent", ConstraintPath = "AuditEvent.object.detail")]
         [DataContract]
         public partial class DetailComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

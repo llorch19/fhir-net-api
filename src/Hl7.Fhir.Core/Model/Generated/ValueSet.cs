@@ -99,7 +99,7 @@ namespace Hl7.Fhir.Model
             NotIn,
         }
 
-        [FhirType("ContactComponent")]
+        [FhirType("ContactComponent", ConstraintPath = "ValueSet.contact")]
         [DataContract]
         public partial class ContactComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -223,7 +223,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("CodeSystemComponent")]
+        [FhirType("CodeSystemComponent", ConstraintPath = "ValueSet.codeSystem")]
         [DataContract]
         public partial class CodeSystemComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -422,7 +422,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ConceptDefinitionComponent")]
+        [FhirType("ConceptDefinitionComponent", ConstraintPath = "ValueSet.codeSystem.concept")]
         [DataContract]
         public partial class ConceptDefinitionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -677,7 +677,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("DesignationComponent")]
+        [FhirType("DesignationComponent", ConstraintPath = "ValueSet.codeSystem.concept.designation")]
         [DataContract]
         public partial class DesignationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -838,7 +838,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ComposeComponent")]
+        [FhirType("ComposeComponent", ConstraintPath = "ValueSet.compose")]
         [DataContract]
         public partial class ComposeComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -982,7 +982,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ConceptSetComponent")]
+        [FhirType("ConceptSetComponent", ConstraintPath = "ValueSet.compose.include")]
         [DataContract]
         public partial class ConceptSetComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1163,7 +1163,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ConceptReferenceComponent")]
+        [FhirType("ConceptReferenceComponent", ConstraintPath = "ValueSet.compose.include.concept")]
         [DataContract]
         public partial class ConceptReferenceComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1325,7 +1325,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("FilterComponent")]
+        [FhirType("FilterComponent", ConstraintPath = "ValueSet.compose.include.filter")]
         [DataContract]
         public partial class FilterComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1507,7 +1507,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ExpansionComponent")]
+        [FhirType("ExpansionComponent", ConstraintPath = "ValueSet.expansion")]
         [DataContract]
         public partial class ExpansionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1763,7 +1763,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ParameterComponent")]
+        [FhirType("ParameterComponent", ConstraintPath = "ValueSet.expansion.parameter")]
         [DataContract]
         public partial class ParameterComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1889,7 +1889,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ContainsComponent")]
+        [FhirType("ContainsComponent", ConstraintPath = "ValueSet.expansion.contains")]
         [DataContract]
         public partial class ContainsComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

@@ -99,7 +99,7 @@ namespace Hl7.Fhir.Model
             Unknown,
         }
 
-        [FhirType("StageComponent")]
+        [FhirType("StageComponent", ConstraintPath = "Condition.stage")]
         [DataContract]
         public partial class StageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -206,7 +206,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("EvidenceComponent")]
+        [FhirType("EvidenceComponent", ConstraintPath = "Condition.evidence")]
         [DataContract]
         public partial class EvidenceComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

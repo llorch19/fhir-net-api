@@ -111,7 +111,7 @@ namespace Hl7.Fhir.Model
             Cancelled,
         }
 
-        [FhirType("OralDietComponent")]
+        [FhirType("OralDietComponent", ConstraintPath = "NutritionOrder.oralDiet")]
         [DataContract]
         public partial class OralDietComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -311,7 +311,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("NutrientComponent")]
+        [FhirType("NutrientComponent", ConstraintPath = "NutritionOrder.oralDiet.nutrient")]
         [DataContract]
         public partial class NutrientComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -415,7 +415,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("TextureComponent")]
+        [FhirType("TextureComponent", ConstraintPath = "NutritionOrder.oralDiet.texture")]
         [DataContract]
         public partial class TextureComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -519,7 +519,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SupplementComponent")]
+        [FhirType("SupplementComponent", ConstraintPath = "NutritionOrder.supplement")]
         [DataContract]
         public partial class SupplementComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -716,7 +716,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("EnteralFormulaComponent")]
+        [FhirType("EnteralFormulaComponent", ConstraintPath = "NutritionOrder.enteralFormula")]
         [DataContract]
         public partial class EnteralFormulaComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1004,7 +1004,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("AdministrationComponent")]
+        [FhirType("AdministrationComponent", ConstraintPath = "NutritionOrder.enteralFormula.administration")]
         [DataContract]
         public partial class AdministrationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

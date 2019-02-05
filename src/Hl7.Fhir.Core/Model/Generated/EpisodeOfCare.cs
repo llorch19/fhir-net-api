@@ -99,7 +99,7 @@ namespace Hl7.Fhir.Model
             Cancelled,
         }
 
-        [FhirType("StatusHistoryComponent")]
+        [FhirType("StatusHistoryComponent", ConstraintPath = "EpisodeOfCare.statusHistory")]
         [DataContract]
         public partial class StatusHistoryComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -224,7 +224,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("CareTeamComponent")]
+        [FhirType("CareTeamComponent", ConstraintPath = "EpisodeOfCare.careTeam")]
         [DataContract]
         public partial class CareTeamComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

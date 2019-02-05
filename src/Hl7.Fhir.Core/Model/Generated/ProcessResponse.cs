@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "ProcessResponse"; } }
         
-        [FhirType("NotesComponent")]
+        [FhirType("NotesComponent", ConstraintPath = "ProcessResponse.notes")]
         [DataContract]
         public partial class NotesComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

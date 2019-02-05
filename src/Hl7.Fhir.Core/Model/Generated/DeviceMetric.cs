@@ -237,7 +237,7 @@ namespace Hl7.Fhir.Model
             Unspecified,
         }
 
-        [FhirType("CalibrationComponent")]
+        [FhirType("CalibrationComponent", ConstraintPath = "DeviceMetric.calibration")]
         [DataContract]
         public partial class CalibrationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

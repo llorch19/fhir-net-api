@@ -117,7 +117,7 @@ namespace Hl7.Fhir.Model
             Cancelled,
         }
 
-        [FhirType("OutcomeComponent")]
+        [FhirType("OutcomeComponent", ConstraintPath = "Goal.outcome")]
         [DataContract]
         public partial class OutcomeComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

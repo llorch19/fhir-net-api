@@ -150,7 +150,7 @@ namespace Hl7.Fhir.Model
             InterferedBy,
         }
 
-        [FhirType("ReferenceRangeComponent")]
+        [FhirType("ReferenceRangeComponent", ConstraintPath = "Observation.referenceRange")]
         [DataContract]
         public partial class ReferenceRangeComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -327,7 +327,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("RelatedComponent")]
+        [FhirType("RelatedComponent", ConstraintPath = "Observation.related")]
         [DataContract]
         public partial class RelatedComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -453,7 +453,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ComponentComponent")]
+        [FhirType("ComponentComponent", ConstraintPath = "Observation.component")]
         [DataContract]
         public partial class ComponentComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

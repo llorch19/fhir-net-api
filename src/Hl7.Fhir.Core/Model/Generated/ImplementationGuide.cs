@@ -177,7 +177,7 @@ namespace Hl7.Fhir.Model
             Resource,
         }
 
-        [FhirType("ContactComponent")]
+        [FhirType("ContactComponent", ConstraintPath = "ImplementationGuide.contact")]
         [DataContract]
         public partial class ContactComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -301,7 +301,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("DependencyComponent")]
+        [FhirType("DependencyComponent", ConstraintPath = "ImplementationGuide.dependency")]
         [DataContract]
         public partial class DependencyComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -445,7 +445,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("PackageComponent")]
+        [FhirType("PackageComponent", ConstraintPath = "ImplementationGuide.package")]
         [DataContract]
         public partial class PackageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -607,7 +607,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ResourceComponent")]
+        [FhirType("ResourceComponent", ConstraintPath = "ImplementationGuide.package.resource")]
         [DataContract]
         public partial class ResourceComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -865,7 +865,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("GlobalComponent")]
+        [FhirType("GlobalComponent", ConstraintPath = "ImplementationGuide.global")]
         [DataContract]
         public partial class GlobalComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -992,7 +992,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("PageComponent")]
+        [FhirType("PageComponent", ConstraintPath = "ImplementationGuide.page")]
         [DataContract]
         public partial class PageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "Substance"; } }
         
-        [FhirType("InstanceComponent")]
+        [FhirType("InstanceComponent", ConstraintPath = "Substance.instance")]
         [DataContract]
         public partial class InstanceComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -195,7 +195,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("IngredientComponent")]
+        [FhirType("IngredientComponent", ConstraintPath = "Substance.ingredient")]
         [DataContract]
         public partial class IngredientComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

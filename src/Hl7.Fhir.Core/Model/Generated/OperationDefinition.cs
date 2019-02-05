@@ -97,7 +97,7 @@ namespace Hl7.Fhir.Model
         }
 
 // TODO: the enumeration ParameterTypesusedinOperationDefinitions contains an expansion that has duplicates
-        [FhirType("ContactComponent")]
+        [FhirType("ContactComponent", ConstraintPath = "OperationDefinition.contact")]
         [DataContract]
         public partial class ContactComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -221,7 +221,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ParameterComponent")]
+        [FhirType("ParameterComponent", ConstraintPath = "OperationDefinition.parameter")]
         [DataContract]
         public partial class ParameterComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -572,7 +572,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("BindingComponent")]
+        [FhirType("BindingComponent", ConstraintPath = "OperationDefinition.parameter.binding")]
         [DataContract]
         public partial class BindingComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

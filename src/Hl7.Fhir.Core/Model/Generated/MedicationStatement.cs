@@ -87,7 +87,7 @@ namespace Hl7.Fhir.Model
             Intended,
         }
 
-        [FhirType("DosageComponent")]
+        [FhirType("DosageComponent", ConstraintPath = "MedicationStatement.dosage")]
         [DataContract]
         public partial class DosageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

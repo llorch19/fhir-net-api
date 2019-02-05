@@ -197,7 +197,7 @@ namespace Hl7.Fhir.Model
             PCV,
         }
 
-        [FhirType("RepeatComponent")]
+        [FhirType("RepeatComponent", ConstraintPath = "Timing.repeat")]
         [DataContract]
         public partial class RepeatComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

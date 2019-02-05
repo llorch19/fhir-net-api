@@ -197,7 +197,7 @@ namespace Hl7.Fhir.Model
             Completed,
         }
 
-        [FhirType("StatusHistoryComponent")]
+        [FhirType("StatusHistoryComponent", ConstraintPath = "Encounter.statusHistory")]
         [DataContract]
         public partial class StatusHistoryComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -322,7 +322,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ParticipantComponent")]
+        [FhirType("ParticipantComponent", ConstraintPath = "Encounter.participant")]
         [DataContract]
         public partial class ParticipantComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -447,7 +447,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("HospitalizationComponent")]
+        [FhirType("HospitalizationComponent", ConstraintPath = "Encounter.hospitalization")]
         [DataContract]
         public partial class HospitalizationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -726,7 +726,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("LocationComponent")]
+        [FhirType("LocationComponent", ConstraintPath = "Encounter.location")]
         [DataContract]
         public partial class LocationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

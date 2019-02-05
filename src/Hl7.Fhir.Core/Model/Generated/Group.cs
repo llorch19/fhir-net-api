@@ -99,7 +99,7 @@ namespace Hl7.Fhir.Model
             Substance,
         }
 
-        [FhirType("CharacteristicComponent")]
+        [FhirType("CharacteristicComponent", ConstraintPath = "Group.characteristic")]
         [DataContract]
         public partial class CharacteristicComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -263,7 +263,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("MemberComponent")]
+        [FhirType("MemberComponent", ConstraintPath = "Group.member")]
         [DataContract]
         public partial class MemberComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

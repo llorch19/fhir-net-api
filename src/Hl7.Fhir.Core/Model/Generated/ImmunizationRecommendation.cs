@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "ImmunizationRecommendation"; } }
         
-        [FhirType("RecommendationComponent")]
+        [FhirType("RecommendationComponent", ConstraintPath = "ImmunizationRecommendation.recommendation")]
         [DataContract]
         public partial class RecommendationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -314,7 +314,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("DateCriterionComponent")]
+        [FhirType("DateCriterionComponent", ConstraintPath = "ImmunizationRecommendation.recommendation.dateCriterion")]
         [DataContract]
         public partial class DateCriterionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -439,7 +439,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ProtocolComponent")]
+        [FhirType("ProtocolComponent", ConstraintPath = "ImmunizationRecommendation.recommendation.protocol")]
         [DataContract]
         public partial class ProtocolComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

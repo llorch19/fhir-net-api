@@ -177,7 +177,7 @@ namespace Hl7.Fhir.Model
             DELETE,
         }
 
-        [FhirType("LinkComponent")]
+        [FhirType("LinkComponent", ConstraintPath = "Bundle.link")]
         [DataContract]
         public partial class LinkComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -321,7 +321,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("EntryComponent")]
+        [FhirType("EntryComponent", ConstraintPath = "Bundle.entry")]
         [DataContract]
         public partial class EntryComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -519,7 +519,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SearchComponent")]
+        [FhirType("SearchComponent", ConstraintPath = "Bundle.entry.search")]
         [DataContract]
         public partial class SearchComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -661,7 +661,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("RequestComponent")]
+        [FhirType("RequestComponent", ConstraintPath = "Bundle.entry.request")]
         [DataContract]
         public partial class RequestComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -953,7 +953,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ResponseComponent")]
+        [FhirType("ResponseComponent", ConstraintPath = "Bundle.entry.response")]
         [DataContract]
         public partial class ResponseComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

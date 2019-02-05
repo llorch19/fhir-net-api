@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "Immunization"; } }
         
-        [FhirType("ExplanationComponent")]
+        [FhirType("ExplanationComponent", ConstraintPath = "Immunization.explanation")]
         [DataContract]
         public partial class ExplanationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -160,7 +160,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ReactionComponent")]
+        [FhirType("ReactionComponent", ConstraintPath = "Immunization.reaction")]
         [DataContract]
         public partial class ReactionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -322,7 +322,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("VaccinationProtocolComponent")]
+        [FhirType("VaccinationProtocolComponent", ConstraintPath = "Immunization.vaccinationProtocol")]
         [DataContract]
         public partial class VaccinationProtocolComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

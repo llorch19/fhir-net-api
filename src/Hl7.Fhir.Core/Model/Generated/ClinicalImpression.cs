@@ -81,7 +81,7 @@ namespace Hl7.Fhir.Model
             EnteredInError,
         }
 
-        [FhirType("InvestigationsComponent")]
+        [FhirType("InvestigationsComponent", ConstraintPath = "ClinicalImpression.investigations")]
         [DataContract]
         public partial class InvestigationsComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -189,7 +189,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("FindingComponent")]
+        [FhirType("FindingComponent", ConstraintPath = "ClinicalImpression.finding")]
         [DataContract]
         public partial class FindingComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -313,7 +313,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("RuledOutComponent")]
+        [FhirType("RuledOutComponent", ConstraintPath = "ClinicalImpression.ruledOut")]
         [DataContract]
         public partial class RuledOutComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

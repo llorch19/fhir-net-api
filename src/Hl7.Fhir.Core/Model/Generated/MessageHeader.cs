@@ -81,7 +81,7 @@ namespace Hl7.Fhir.Model
             FatalError,
         }
 
-        [FhirType("ResponseComponent")]
+        [FhirType("ResponseComponent", ConstraintPath = "MessageHeader.response")]
         [DataContract]
         public partial class ResponseComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -245,7 +245,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("MessageSourceComponent")]
+        [FhirType("MessageSourceComponent", ConstraintPath = "MessageHeader.source")]
         [DataContract]
         public partial class MessageSourceComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -480,7 +480,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("MessageDestinationComponent")]
+        [FhirType("MessageDestinationComponent", ConstraintPath = "MessageHeader.destination")]
         [DataContract]
         public partial class MessageDestinationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

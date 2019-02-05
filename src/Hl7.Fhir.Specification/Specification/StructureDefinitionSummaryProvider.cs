@@ -6,10 +6,8 @@
  * available at https://github.com/ewoutkramer/fhir-net-api/blob/master/LICENSE
  */
 
-using Hl7.Fhir.Introspection;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
-using Hl7.Fhir.Serialization;
 using Hl7.Fhir.Specification.Navigation;
 using Hl7.Fhir.Specification.Source;
 using Hl7.Fhir.Utility;
@@ -44,9 +42,19 @@ namespace Hl7.Fhir.Specification
         {
             var isLocalType = !canonical.Contains("/");
             string mappedCanonical = canonical;
+            string nameRef = null;
 
             if (isLocalType)
             {
+                // May look like Patient or BackboneElement#Patient.contact
+                string[] parts = canonical.Split('#');
+
+                if (parts.Length > 1)
+                {
+                    canonical = parts[1].Split('.')[0];
+                    nameRef = parts[1];
+                }
+
                 var mapSuccess = _typeNameMapper(canonical, out mappedCanonical);
                 if (!mapSuccess) return null;
             }
@@ -54,7 +62,16 @@ namespace Hl7.Fhir.Specification
             var sd = _resolver.FindStructureDefinition(mappedCanonical, requireSnapshot: true);
             if (sd == null) return null;
 
-            return new StructureDefinitionComplexTypeSerializationInfo(ElementDefinitionNavigator.ForSnapshot(sd));
+            var typeNav = ElementDefinitionNavigator.ForSnapshot(sd);
+
+            if(nameRef != null)
+            {
+                if (!typeNav.JumpToFirst(nameRef)) return null;
+                if (!typeNav.Current.IsBackboneElement()) return null;
+                return new BackboneElementComplexTypeSerializationInfo(typeNav);
+            }
+            else
+                return new StructureDefinitionComplexTypeSerializationInfo(typeNav);
         }
     }
 
@@ -67,9 +84,11 @@ namespace Hl7.Fhir.Specification
             this._nav = nav;
         }
 
-        public string TypeName => _nav.Current.Type[0].Code.GetLiteral();
+        public string TypeName => _nav.Current.Type[0].Code.GetLiteral() + "#" + _nav.Current.Path;
 
-        public bool IsAbstract => true;
+        public bool IsAbstract => false;
+
+        public bool IsBackboneElement => true;
 
         public bool IsResource => false;
 
@@ -87,6 +106,8 @@ namespace Hl7.Fhir.Specification
         }
 
         public string TypeName => _nav.StructureDefinition.Name;
+
+        public bool IsBackboneElement => false;
 
         public bool IsAbstract => _nav.StructureDefinition.Abstract ?? false;
 

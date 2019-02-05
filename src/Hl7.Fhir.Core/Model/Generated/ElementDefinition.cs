@@ -143,7 +143,7 @@ namespace Hl7.Fhir.Model
             Warning,
         }
 
-        [FhirType("SlicingComponent")]
+        [FhirType("SlicingComponent", ConstraintPath = "ElementDefinition.slicing")]
         [DataContract]
         public partial class SlicingComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -358,7 +358,7 @@ namespace Hl7.Fhir.Model
             } 
             
         }                
-        [FhirType("BaseComponent")]
+        [FhirType("BaseComponent", ConstraintPath = "ElementDefinition.base")]
         [DataContract]
         public partial class BaseComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -537,7 +537,7 @@ namespace Hl7.Fhir.Model
             } 
             
         }                
-        [FhirType("TypeRefComponent")]
+        [FhirType("TypeRefComponent", ConstraintPath = "ElementDefinition.type")]
         [DataContract]
         public partial class TypeRefComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -716,7 +716,7 @@ namespace Hl7.Fhir.Model
             } 
             
         }                
-        [FhirType("ConstraintComponent")]
+        [FhirType("ConstraintComponent", ConstraintPath = "ElementDefinition.constraint")]
         [DataContract]
         public partial class ConstraintComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -970,7 +970,7 @@ namespace Hl7.Fhir.Model
             } 
             
         }                
-        [FhirType("BindingComponent")]
+        [FhirType("BindingComponent", ConstraintPath = "ElementDefinition.binding")]
         [DataContract]
         public partial class BindingComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1130,7 +1130,7 @@ namespace Hl7.Fhir.Model
             } 
             
         }                
-        [FhirType("MappingComponent")]
+        [FhirType("MappingComponent", ConstraintPath = "ElementDefinition.mapping")]
         [DataContract]
         public partial class MappingComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

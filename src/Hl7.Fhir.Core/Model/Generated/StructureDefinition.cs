@@ -114,7 +114,7 @@ namespace Hl7.Fhir.Model
             Extension,
         }
 
-        [FhirType("ContactComponent")]
+        [FhirType("ContactComponent", ConstraintPath = "StructureDefinition.contact")]
         [DataContract]
         public partial class ContactComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -238,7 +238,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("MappingComponent")]
+        [FhirType("MappingComponent", ConstraintPath = "StructureDefinition.mapping")]
         [DataContract]
         public partial class MappingComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -455,7 +455,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SnapshotComponent")]
+        [FhirType("SnapshotComponent", ConstraintPath = "StructureDefinition.snapshot")]
         [DataContract]
         public partial class SnapshotComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -542,7 +542,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("DifferentialComponent")]
+        [FhirType("DifferentialComponent", ConstraintPath = "StructureDefinition.differential")]
         [DataContract]
         public partial class DifferentialComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

@@ -105,7 +105,7 @@ namespace Hl7.Fhir.Model
             Sun,
         }
 
-        [FhirType("ServiceTypeComponent")]
+        [FhirType("ServiceTypeComponent", ConstraintPath = "HealthcareService.serviceType")]
         [DataContract]
         public partial class ServiceTypeComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -211,7 +211,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("AvailableTimeComponent")]
+        [FhirType("AvailableTimeComponent", ConstraintPath = "HealthcareService.availableTime")]
         [DataContract]
         public partial class AvailableTimeComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -428,7 +428,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("NotAvailableComponent")]
+        [FhirType("NotAvailableComponent", ConstraintPath = "HealthcareService.notAvailable")]
         [DataContract]
         public partial class NotAvailableComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

@@ -94,7 +94,7 @@ namespace Hl7.Fhir.Model
             Stopped,
         }
 
-        [FhirType("DosageInstructionComponent")]
+        [FhirType("DosageInstructionComponent", ConstraintPath = "MedicationDispense.dosageInstruction")]
         [DataContract]
         public partial class DosageInstructionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -369,7 +369,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SubstitutionComponent")]
+        [FhirType("SubstitutionComponent", ConstraintPath = "MedicationDispense.substitution")]
         [DataContract]
         public partial class SubstitutionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "ImagingObjectSelection"; } }
         
-        [FhirType("StudyComponent")]
+        [FhirType("StudyComponent", ConstraintPath = "ImagingObjectSelection.study")]
         [DataContract]
         public partial class StudyComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -236,7 +236,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SeriesComponent")]
+        [FhirType("SeriesComponent", ConstraintPath = "ImagingObjectSelection.study.series")]
         [DataContract]
         public partial class SeriesComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -397,7 +397,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("InstanceComponent")]
+        [FhirType("InstanceComponent", ConstraintPath = "ImagingObjectSelection.study.series.instance")]
         [DataContract]
         public partial class InstanceComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -598,7 +598,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("FramesComponent")]
+        [FhirType("FramesComponent", ConstraintPath = "ImagingObjectSelection.study.series.instance.frames")]
         [DataContract]
         public partial class FramesComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

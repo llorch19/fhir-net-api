@@ -240,7 +240,7 @@ namespace Hl7.Fhir.Model
             Severe,
         }
 
-        [FhirType("ReactionComponent")]
+        [FhirType("ReactionComponent", ConstraintPath = "AllergyIntolerance.reaction")]
         [DataContract]
         public partial class ReactionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

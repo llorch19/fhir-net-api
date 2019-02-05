@@ -87,7 +87,7 @@ namespace Hl7.Fhir.Model
             EnteredInError,
         }
 
-        [FhirType("PerformerComponent")]
+        [FhirType("PerformerComponent", ConstraintPath = "Procedure.performer")]
         [DataContract]
         public partial class PerformerComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -193,7 +193,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("FocalDeviceComponent")]
+        [FhirType("FocalDeviceComponent", ConstraintPath = "Procedure.focalDevice")]
         [DataContract]
         public partial class FocalDeviceComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

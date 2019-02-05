@@ -87,7 +87,7 @@ namespace Hl7.Fhir.Model
             UNAVAILABLE,
         }
 
-        [FhirType("SeriesComponent")]
+        [FhirType("SeriesComponent", ConstraintPath = "ImagingStudy.series")]
         [DataContract]
         public partial class SeriesComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -490,7 +490,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("InstanceComponent")]
+        [FhirType("InstanceComponent", ConstraintPath = "ImagingStudy.series.instance")]
         [DataContract]
         public partial class InstanceComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

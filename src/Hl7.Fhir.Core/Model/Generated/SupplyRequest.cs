@@ -87,7 +87,7 @@ namespace Hl7.Fhir.Model
             Cancelled,
         }
 
-        [FhirType("WhenComponent")]
+        [FhirType("WhenComponent", ConstraintPath = "SupplyRequest.when")]
         [DataContract]
         public partial class WhenComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

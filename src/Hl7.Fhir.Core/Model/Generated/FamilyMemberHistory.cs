@@ -87,7 +87,7 @@ namespace Hl7.Fhir.Model
             HealthUnknown,
         }
 
-        [FhirType("ConditionComponent")]
+        [FhirType("ConditionComponent", ConstraintPath = "FamilyMemberHistory.condition")]
         [DataContract]
         public partial class ConditionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

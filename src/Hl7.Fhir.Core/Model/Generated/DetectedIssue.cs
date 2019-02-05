@@ -81,7 +81,7 @@ namespace Hl7.Fhir.Model
             Low,
         }
 
-        [FhirType("MitigationComponent")]
+        [FhirType("MitigationComponent", ConstraintPath = "DetectedIssue.mitigation")]
         [DataContract]
         public partial class MitigationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "Contract"; } }
         
-        [FhirType("ActorComponent")]
+        [FhirType("ActorComponent", ConstraintPath = "Contract.actor")]
         [DataContract]
         public partial class ActorComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -162,7 +162,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ValuedItemComponent")]
+        [FhirType("ValuedItemComponent", ConstraintPath = "Contract.valuedItem")]
         [DataContract]
         public partial class ValuedItemComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -433,7 +433,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SignatoryComponent")]
+        [FhirType("SignatoryComponent", ConstraintPath = "Contract.signer")]
         [DataContract]
         public partial class SignatoryComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -579,7 +579,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("TermComponent")]
+        [FhirType("TermComponent", ConstraintPath = "Contract.term")]
         [DataContract]
         public partial class TermComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -908,7 +908,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("TermActorComponent")]
+        [FhirType("TermActorComponent", ConstraintPath = "Contract.term.actor")]
         [DataContract]
         public partial class TermActorComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1016,7 +1016,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("TermValuedItemComponent")]
+        [FhirType("TermValuedItemComponent", ConstraintPath = "Contract.term.valuedItem")]
         [DataContract]
         public partial class TermValuedItemComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1287,7 +1287,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("FriendlyLanguageComponent")]
+        [FhirType("FriendlyLanguageComponent", ConstraintPath = "Contract.friendly")]
         [DataContract]
         public partial class FriendlyLanguageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1376,7 +1376,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("LegalLanguageComponent")]
+        [FhirType("LegalLanguageComponent", ConstraintPath = "Contract.legal")]
         [DataContract]
         public partial class LegalLanguageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1465,7 +1465,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ComputableLanguageComponent")]
+        [FhirType("ComputableLanguageComponent", ConstraintPath = "Contract.rule")]
         [DataContract]
         public partial class ComputableLanguageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

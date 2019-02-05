@@ -93,7 +93,7 @@ namespace Hl7.Fhir.Model
             Failed,
         }
 
-        [FhirType("PayloadComponent")]
+        [FhirType("PayloadComponent", ConstraintPath = "Communication.payload")]
         [DataContract]
         public partial class PayloadComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

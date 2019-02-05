@@ -40,8 +40,6 @@ namespace Hl7.Fhir.Introspection
     [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
     public sealed class FhirTypeAttribute : InvokeIValidatableObjectAttribute
     {
-        readonly string name;
-
         public FhirTypeAttribute()
         {
             // No arg constructor - use defaults
@@ -49,13 +47,12 @@ namespace Hl7.Fhir.Introspection
 
         public FhirTypeAttribute(string name)
         {
-            this.name = name;
+            this.Name = name;
         }
 
-        public string Name
-        {
-            get { return name; }
-        }
+        public string Name { get; private set; }
+
+        public string ConstraintPath { get; set; }
 
         public string Profile { get; set; }
 

@@ -93,7 +93,7 @@ namespace Hl7.Fhir.Model
             Other,
         }
 
-        [FhirType("ContactComponent")]
+        [FhirType("ContactComponent", ConstraintPath = "SearchParameter.contact")]
         [DataContract]
         public partial class ContactComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

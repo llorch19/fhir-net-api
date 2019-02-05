@@ -180,7 +180,7 @@ namespace Hl7.Fhir.Model
             Quantity,
         }
 
-        [FhirType("GroupComponent")]
+        [FhirType("GroupComponent", ConstraintPath = "Questionnaire.group")]
         [DataContract]
         public partial class GroupComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -490,7 +490,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("QuestionComponent")]
+        [FhirType("QuestionComponent", ConstraintPath = "Questionnaire.group.question")]
         [DataContract]
         public partial class QuestionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

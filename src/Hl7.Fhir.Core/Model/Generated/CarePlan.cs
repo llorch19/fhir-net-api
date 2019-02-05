@@ -165,7 +165,7 @@ namespace Hl7.Fhir.Model
             Cancelled,
         }
 
-        [FhirType("RelatedPlanComponent")]
+        [FhirType("RelatedPlanComponent", ConstraintPath = "CarePlan.relatedPlan")]
         [DataContract]
         public partial class RelatedPlanComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -291,7 +291,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ParticipantComponent")]
+        [FhirType("ParticipantComponent", ConstraintPath = "CarePlan.participant")]
         [DataContract]
         public partial class ParticipantComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -397,7 +397,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ActivityComponent")]
+        [FhirType("ActivityComponent", ConstraintPath = "CarePlan.activity")]
         [DataContract]
         public partial class ActivityComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -543,7 +543,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("DetailComponent")]
+        [FhirType("DetailComponent", ConstraintPath = "CarePlan.activity.detail")]
         [DataContract]
         public partial class DetailComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

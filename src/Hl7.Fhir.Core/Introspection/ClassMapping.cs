@@ -48,6 +48,8 @@ namespace Hl7.Fhir.Introspection
 
         public bool IsAbstract { get; private set; }
 
+        public string ConstraintPath { get; private set; }
+
         /// <summary>
         /// PropertyMappings indexed by uppercase name for access speed
         /// </summary>
@@ -114,6 +116,7 @@ namespace Hl7.Fhir.Introspection
                 result.Name = collectTypeName(type);
                 result.Profile = getProfile(type);
                 result.IsResource = IsFhirResource(type);
+                result.ConstraintPath = getConstraintPath(type);
                 result.IsAbstract = type.GetTypeInfo().IsAbstract;
                 result.IsCodeOfT = ReflectionHelper.IsClosedGenericType(type) &&
                                     ReflectionHelper.IsConstructedFromGenericTypeDefinition(type, typeof(Code<>));
@@ -162,6 +165,10 @@ namespace Hl7.Fhir.Introspection
 
         private static string getProfile(Type type) => 
             type.GetTypeInfo().GetCustomAttribute<FhirTypeAttribute>()?.Profile;
+
+        private static string getConstraintPath(Type type) =>
+                type.GetTypeInfo().GetCustomAttribute<FhirTypeAttribute>()?.ConstraintPath;
+
 
         private static string collectTypeName(Type type)
         {

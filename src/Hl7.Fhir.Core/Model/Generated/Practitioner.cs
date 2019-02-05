@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "Practitioner"; } }
         
-        [FhirType("PractitionerRoleComponent")]
+        [FhirType("PractitionerRoleComponent", ConstraintPath = "Practitioner.practitionerRole")]
         [DataContract]
         public partial class PractitionerRoleComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -239,7 +239,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("QualificationComponent")]
+        [FhirType("QualificationComponent", ConstraintPath = "Practitioner.qualification")]
         [DataContract]
         public partial class QualificationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

@@ -450,7 +450,7 @@ namespace Hl7.Fhir.Model
             Consumer,
         }
 
-        [FhirType("ContactComponent")]
+        [FhirType("ContactComponent", ConstraintPath = "Conformance.contact")]
         [DataContract]
         public partial class ContactComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -574,7 +574,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SoftwareComponent")]
+        [FhirType("SoftwareComponent", ConstraintPath = "Conformance.software")]
         [DataContract]
         public partial class SoftwareComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -754,7 +754,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ImplementationComponent")]
+        [FhirType("ImplementationComponent", ConstraintPath = "Conformance.implementation")]
         [DataContract]
         public partial class ImplementationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -897,7 +897,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("RestComponent")]
+        [FhirType("RestComponent", ConstraintPath = "Conformance.rest")]
         [DataContract]
         public partial class RestComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1209,7 +1209,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SecurityComponent")]
+        [FhirType("SecurityComponent", ConstraintPath = "Conformance.rest.security")]
         [DataContract]
         public partial class SecurityComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1389,7 +1389,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("CertificateComponent")]
+        [FhirType("CertificateComponent", ConstraintPath = "Conformance.rest.security.certificate")]
         [DataContract]
         public partial class CertificateComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1531,7 +1531,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ResourceComponent")]
+        [FhirType("ResourceComponent", ConstraintPath = "Conformance.rest.resource")]
         [DataContract]
         public partial class ResourceComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1993,7 +1993,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ResourceInteractionComponent")]
+        [FhirType("ResourceInteractionComponent", ConstraintPath = "Conformance.rest.resource.interaction")]
         [DataContract]
         public partial class ResourceInteractionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -2136,7 +2136,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SearchParamComponent")]
+        [FhirType("SearchParamComponent", ConstraintPath = "Conformance.rest.resource.searchParam")]
         [DataContract]
         public partial class SearchParamComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -2468,7 +2468,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SystemInteractionComponent")]
+        [FhirType("SystemInteractionComponent", ConstraintPath = "Conformance.rest.interaction")]
         [DataContract]
         public partial class SystemInteractionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -2611,7 +2611,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("OperationComponent")]
+        [FhirType("OperationComponent", ConstraintPath = "Conformance.rest.operation")]
         [DataContract]
         public partial class OperationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -2738,7 +2738,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("MessagingComponent")]
+        [FhirType("MessagingComponent", ConstraintPath = "Conformance.messaging")]
         [DataContract]
         public partial class MessagingComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -2918,7 +2918,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("EndpointComponent")]
+        [FhirType("EndpointComponent", ConstraintPath = "Conformance.messaging.endpoint")]
         [DataContract]
         public partial class EndpointComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -3043,7 +3043,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("EventComponent")]
+        [FhirType("EventComponent", ConstraintPath = "Conformance.messaging.event")]
         [DataContract]
         public partial class EventComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -3322,7 +3322,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("DocumentComponent")]
+        [FhirType("DocumentComponent", ConstraintPath = "Conformance.document")]
         [DataContract]
         public partial class DocumentComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

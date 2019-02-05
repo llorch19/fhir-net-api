@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "Order"; } }
         
-        [FhirType("WhenComponent")]
+        [FhirType("WhenComponent", ConstraintPath = "Order.when")]
         [DataContract]
         public partial class WhenComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

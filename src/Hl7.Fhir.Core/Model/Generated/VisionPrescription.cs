@@ -108,7 +108,7 @@ namespace Hl7.Fhir.Model
             Out,
         }
 
-        [FhirType("DispenseComponent")]
+        [FhirType("DispenseComponent", ConstraintPath = "VisionPrescription.dispense")]
         [DataContract]
         public partial class DispenseComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

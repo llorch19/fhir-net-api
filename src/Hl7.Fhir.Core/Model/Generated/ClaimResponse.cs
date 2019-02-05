@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "ClaimResponse"; } }
         
-        [FhirType("ItemsComponent")]
+        [FhirType("ItemsComponent", ConstraintPath = "ClaimResponse.item")]
         [DataContract]
         public partial class ItemsComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -236,7 +236,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ItemAdjudicationComponent")]
+        [FhirType("ItemAdjudicationComponent", ConstraintPath = "ClaimResponse.item.adjudication")]
         [DataContract]
         public partial class ItemAdjudicationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -378,7 +378,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ItemDetailComponent")]
+        [FhirType("ItemDetailComponent", ConstraintPath = "ClaimResponse.item.detail")]
         [DataContract]
         public partial class ItemDetailComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -522,7 +522,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("DetailAdjudicationComponent")]
+        [FhirType("DetailAdjudicationComponent", ConstraintPath = "ClaimResponse.item.detail.adjudication")]
         [DataContract]
         public partial class DetailAdjudicationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -664,7 +664,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SubDetailComponent")]
+        [FhirType("SubDetailComponent", ConstraintPath = "ClaimResponse.item.detail.subDetail")]
         [DataContract]
         public partial class SubDetailComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -789,7 +789,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SubdetailAdjudicationComponent")]
+        [FhirType("SubdetailAdjudicationComponent", ConstraintPath = "ClaimResponse.item.detail.subDetail.adjudication")]
         [DataContract]
         public partial class SubdetailAdjudicationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -931,7 +931,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("AddedItemComponent")]
+        [FhirType("AddedItemComponent", ConstraintPath = "ClaimResponse.addItem")]
         [DataContract]
         public partial class AddedItemComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1150,7 +1150,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("AddedItemAdjudicationComponent")]
+        [FhirType("AddedItemAdjudicationComponent", ConstraintPath = "ClaimResponse.addItem.adjudication")]
         [DataContract]
         public partial class AddedItemAdjudicationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1292,7 +1292,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("AddedItemsDetailComponent")]
+        [FhirType("AddedItemsDetailComponent", ConstraintPath = "ClaimResponse.addItem.detail")]
         [DataContract]
         public partial class AddedItemsDetailComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1416,7 +1416,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("AddedItemDetailAdjudicationComponent")]
+        [FhirType("AddedItemDetailAdjudicationComponent", ConstraintPath = "ClaimResponse.addItem.detail.adjudication")]
         [DataContract]
         public partial class AddedItemDetailAdjudicationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1558,7 +1558,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ErrorsComponent")]
+        [FhirType("ErrorsComponent", ConstraintPath = "ClaimResponse.error")]
         [DataContract]
         public partial class ErrorsComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1756,7 +1756,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("NotesComponent")]
+        [FhirType("NotesComponent", ConstraintPath = "ClaimResponse.note")]
         [DataContract]
         public partial class NotesComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -1916,7 +1916,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("CoverageComponent")]
+        [FhirType("CoverageComponent", ConstraintPath = "ClaimResponse.coverage")]
         [DataContract]
         public partial class CoverageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

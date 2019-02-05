@@ -165,7 +165,7 @@ namespace Hl7.Fhir.Model
             NeedsAction,
         }
 
-        [FhirType("ParticipantComponent")]
+        [FhirType("ParticipantComponent", ConstraintPath = "Appointment.participant")]
         [DataContract]
         public partial class ParticipantComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

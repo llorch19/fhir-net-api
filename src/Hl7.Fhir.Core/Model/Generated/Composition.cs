@@ -205,7 +205,7 @@ namespace Hl7.Fhir.Model
             Official,
         }
 
-        [FhirType("AttesterComponent")]
+        [FhirType("AttesterComponent", ConstraintPath = "Composition.attester")]
         [DataContract]
         public partial class AttesterComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -368,7 +368,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("EventComponent")]
+        [FhirType("EventComponent", ConstraintPath = "Composition.event")]
         [DataContract]
         public partial class EventComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -494,7 +494,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SectionComponent")]
+        [FhirType("SectionComponent", ConstraintPath = "Composition.section")]
         [DataContract]
         public partial class SectionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

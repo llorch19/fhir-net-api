@@ -270,7 +270,7 @@ namespace Hl7.Fhir.Model
             Informational,
         }
 
-        [FhirType("IssueComponent")]
+        [FhirType("IssueComponent", ConstraintPath = "OperationOutcome.issue")]
         [DataContract]
         public partial class IssueComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

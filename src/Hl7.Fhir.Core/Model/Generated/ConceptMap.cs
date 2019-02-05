@@ -117,7 +117,7 @@ namespace Hl7.Fhir.Model
             Disjoint,
         }
 
-        [FhirType("ContactComponent")]
+        [FhirType("ContactComponent", ConstraintPath = "ConceptMap.contact")]
         [DataContract]
         public partial class ContactComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -241,7 +241,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("SourceElementComponent")]
+        [FhirType("SourceElementComponent", ConstraintPath = "ConceptMap.element")]
         [DataContract]
         public partial class SourceElementComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -402,7 +402,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("TargetElementComponent")]
+        [FhirType("TargetElementComponent", ConstraintPath = "ConceptMap.element.target")]
         [DataContract]
         public partial class TargetElementComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -657,7 +657,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("OtherElementComponent")]
+        [FhirType("OtherElementComponent", ConstraintPath = "ConceptMap.element.target.dependsOn")]
         [DataContract]
         public partial class OtherElementComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

@@ -87,7 +87,7 @@ namespace Hl7.Fhir.Model
             Source,
         }
 
-        [FhirType("AgentComponent")]
+        [FhirType("AgentComponent", ConstraintPath = "Provenance.agent")]
         [DataContract]
         public partial class AgentComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -231,7 +231,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("RelatedAgentComponent")]
+        [FhirType("RelatedAgentComponent", ConstraintPath = "Provenance.agent.relatedAgent")]
         [DataContract]
         public partial class RelatedAgentComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -356,7 +356,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("EntityComponent")]
+        [FhirType("EntityComponent", ConstraintPath = "Provenance.entity")]
         [DataContract]
         public partial class EntityComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

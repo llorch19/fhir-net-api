@@ -8,7 +8,6 @@
 
 using Hl7.Fhir.Introspection;
 using Hl7.Fhir.Model;
-using Hl7.Fhir.Serialization;
 using Hl7.Fhir.Utility;
 using System;
 using System.Collections.Generic;
@@ -19,18 +18,44 @@ namespace Hl7.Fhir.Specification
 {
     public class PocoStructureDefinitionSummaryProvider : IStructureDefinitionSummaryProvider
     {
-        public IStructureDefinitionSummary Provide(Type type)
+        public IStructureDefinitionSummary Provide(Type type, string nameRef=null)
         {
             var classMapping = GetMappingForType(type);
             if (classMapping == null) return null;
 
+            if (nameRef != null)
+            {
+                classMapping = walkClassMapping(classMapping, nameRef);
+                if (classMapping == null) return null;
+            }
             return new PocoComplexTypeSerializationInfo(classMapping);
+        }
+
+        private ClassMapping walkClassMapping(ClassMapping root, string path)
+        {
+            // Path looks like Patient.a.b.c => skip the first part and walk from
+            // classmapping to classmapping
+            var parts = path.Split('.');
+            var current = root;
+
+            foreach(var part in parts.Skip(1))
+            {
+                var child = current.PropertyMappings.Single(m => m.Name == part);
+                if (child != null)
+                {
+                    current = GetMappingForType(child.ImplementingType);
+                    if (current == null) return null;
+                }
+                else
+                    return null;
+            }
+
+            return current;
         }
 
         public IStructureDefinitionSummary Provide(string canonical)
         {
             var isLocalType = !canonical.Contains("/");
-            var typeName = canonical;
 
             if(!isLocalType)
             {
@@ -41,10 +66,19 @@ namespace Hl7.Fhir.Specification
                 return null;
             }
 
-            Type csType = ModelInfo.GetTypeForFhirType(typeName);
+            string[] parts = canonical.Split('#');
+            string nameRef = null;
+
+            if (parts.Length > 1)
+            {
+                canonical = parts[1].Split('.')[0];
+                nameRef = parts[1];
+            }
+
+            Type csType = ModelInfo.GetTypeForFhirType(canonical);
             if (csType == null) return null;
 
-            return Provide(csType);
+            return Provide(csType,nameRef);
         }
 
         internal static ClassMapping GetMappingForType(Type elementType)
@@ -64,12 +98,25 @@ namespace Hl7.Fhir.Specification
             _classMapping = classMapping;
         }
 
-        public string TypeName => !_classMapping.IsBackbone ? _classMapping.Name :
-            (_classMapping.NativeType.CanBeTreatedAsType(typeof(BackboneElement)) ?
-            "BackboneElement" : "Element");
+        public string TypeName
+        {
+            get
+            {
+                var baseName = !_classMapping.IsBackbone ? _classMapping.Name :
+                    (_classMapping.NativeType.CanBeTreatedAsType(typeof(BackboneElement)) ?
+                    "BackboneElement" : "Element");
+
+                if (_classMapping.ConstraintPath != null)
+                    return baseName + "#" + _classMapping.ConstraintPath;
+                else
+                    return baseName;
+            }
+        }
 
         public bool IsAbstract => _classMapping.IsAbstract;
         public bool IsResource => _classMapping.IsResource;
+
+        public bool IsBackboneElement => _classMapping.IsBackbone;
 
         public IReadOnlyCollection<IElementDefinitionSummary> GetElements() =>
             _classMapping.PropertyMappings

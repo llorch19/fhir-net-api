@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "MedicationAdministration"; } }
         
-        [FhirType("DosageComponent")]
+        [FhirType("DosageComponent", ConstraintPath = "MedicationAdministration.dosage")]
         [DataContract]
         public partial class DosageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

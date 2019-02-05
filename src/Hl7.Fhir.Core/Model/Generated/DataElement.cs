@@ -99,7 +99,7 @@ namespace Hl7.Fhir.Model
             Flexible,
         }
 
-        [FhirType("ContactComponent")]
+        [FhirType("ContactComponent", ConstraintPath = "DataElement.contact")]
         [DataContract]
         public partial class ContactComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -223,7 +223,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("MappingComponent")]
+        [FhirType("MappingComponent", ConstraintPath = "DataElement.mapping")]
         [DataContract]
         public partial class MappingComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "Medication"; } }
         
-        [FhirType("ProductComponent")]
+        [FhirType("ProductComponent", ConstraintPath = "Medication.product")]
         [DataContract]
         public partial class ProductComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -178,7 +178,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("IngredientComponent")]
+        [FhirType("IngredientComponent", ConstraintPath = "Medication.product.ingredient")]
         [DataContract]
         public partial class IngredientComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -285,7 +285,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("BatchComponent")]
+        [FhirType("BatchComponent", ConstraintPath = "Medication.product.batch")]
         [DataContract]
         public partial class BatchComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -427,7 +427,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("PackageComponent")]
+        [FhirType("PackageComponent", ConstraintPath = "Medication.package")]
         [DataContract]
         public partial class PackageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -532,7 +532,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ContentComponent")]
+        [FhirType("ContentComponent", ConstraintPath = "Medication.package.content")]
         [DataContract]
         public partial class ContentComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

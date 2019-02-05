@@ -174,7 +174,7 @@ namespace Hl7.Fhir.Model
             Asap,
         }
 
-        [FhirType("EventComponent")]
+        [FhirType("EventComponent", ConstraintPath = "DiagnosticOrder.event")]
         [DataContract]
         public partial class EventComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -356,7 +356,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ItemComponent")]
+        [FhirType("ItemComponent", ConstraintPath = "DiagnosticOrder.item")]
         [DataContract]
         public partial class ItemComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

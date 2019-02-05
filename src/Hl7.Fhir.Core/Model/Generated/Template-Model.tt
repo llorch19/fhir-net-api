@@ -274,6 +274,7 @@ if(true) {
     {
 		System.Xml.XmlAttribute componentElement = e2.SelectSingleNode("fhir:path/@value", nsR) as System.Xml.XmlAttribute;
 		string v = componentElement.Value;
+		string componentPath = v;
 		if (v.Contains("."))
         {
 			int index = v.LastIndexOf(".");
@@ -294,7 +295,7 @@ if(true) {
 				component.Add(pd);
         }
 #>
-        [FhirType("<#= componentName #>")]
+        [FhirType("<#= componentName #>", ConstraintPath = "<#= componentPath #>")]
         [DataContract]
         public partial class <#= componentName #> : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

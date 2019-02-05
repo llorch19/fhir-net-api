@@ -87,7 +87,7 @@ namespace Hl7.Fhir.Model
             EnteredInError,
         }
 
-        [FhirType("CollectionComponent")]
+        [FhirType("CollectionComponent", ConstraintPath = "Specimen.collection")]
         [DataContract]
         public partial class CollectionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -287,7 +287,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("TreatmentComponent")]
+        [FhirType("TreatmentComponent", ConstraintPath = "Specimen.treatment")]
         [DataContract]
         public partial class TreatmentComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -431,7 +431,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ContainerComponent")]
+        [FhirType("ContainerComponent", ConstraintPath = "Specimen.container")]
         [DataContract]
         public partial class ContainerComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

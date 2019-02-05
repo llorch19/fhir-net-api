@@ -42,6 +42,9 @@ namespace Hl7.Fhir.Serialization.Tests
             // The weird xhtml datatype
             tryGetType("xhtml");
 
+            // A backbone element
+            tryGetType("BackboneElement#Patient.contact");
+
             void tryGetType(string typename, string baseTypeName = null, bool isAbstract = false)
             {
                 var si = provider.Provide(typename);
@@ -72,7 +75,7 @@ namespace Hl7.Fhir.Serialization.Tests
             checkType(p, "careProvider", true, "Reference");
 
             // Backbone element (repeating)
-            var bbe = checkBBType(p, "contact", "BackboneElement", true);
+            var bbe = checkBBType(p, "contact", "BackboneElement#Patient.contact", true);
 
             // Navigate into the backbone element
             checkType(bbe, "relationship", true, "CodeableConcept");
@@ -96,14 +99,14 @@ namespace Hl7.Fhir.Serialization.Tests
 
             // Test types using nameReference
             var q = provider.Provide("Questionnaire");
-            var qgroup = checkBBType(q, "group", "BackboneElement", false);
+            var qgroup = checkBBType(q, "group", "BackboneElement#Questionnaire.group", false);
             checkType(qgroup, "linkId", false, "string");
-            var qgroupgroup = checkBBType(qgroup, "group", "BackboneElement", true);
+            var qgroupgroup = checkBBType(qgroup, "group", "BackboneElement#Questionnaire.group", true);
             checkType(qgroupgroup, "linkId", false, "string");
 
             // Backbone elements within datatypes
             var tm = provider.Provide("Timing");
-            checkBBType(tm, "repeat", "Element", false);
+            checkBBType(tm, "repeat", "Element#Timing.repeat", false);
         }
 
         private static void checkType(IStructureDefinitionSummary parent, string ename, bool mayRepeat, params string[] types)

@@ -87,7 +87,7 @@ namespace Hl7.Fhir.Model
             Appends,
         }
 
-        [FhirType("RelatesToComponent")]
+        [FhirType("RelatesToComponent", ConstraintPath = "DocumentReference.relatesTo")]
         [DataContract]
         public partial class RelatesToComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -214,7 +214,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ContentComponent")]
+        [FhirType("ContentComponent", ConstraintPath = "DocumentReference.content")]
         [DataContract]
         public partial class ContentComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -320,7 +320,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("ContextComponent")]
+        [FhirType("ContextComponent", ConstraintPath = "DocumentReference.context")]
         [DataContract]
         public partial class ContextComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -520,7 +520,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("RelatedComponent")]
+        [FhirType("RelatedComponent", ConstraintPath = "DocumentReference.context.related")]
         [DataContract]
         public partial class RelatedComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

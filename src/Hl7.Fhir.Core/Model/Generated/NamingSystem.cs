@@ -114,7 +114,7 @@ namespace Hl7.Fhir.Model
             Other,
         }
 
-        [FhirType("ContactComponent")]
+        [FhirType("ContactComponent", ConstraintPath = "NamingSystem.contact")]
         [DataContract]
         public partial class ContactComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -238,7 +238,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("UniqueIdComponent")]
+        [FhirType("UniqueIdComponent", ConstraintPath = "NamingSystem.uniqueId")]
         [DataContract]
         public partial class UniqueIdComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Model
         [NotMapped]
         public override string TypeName { get { return "Parameters"; } }
         
-        [FhirType("ParameterComponent")]
+        [FhirType("ParameterComponent", ConstraintPath = "Parameters.parameter")]
         [DataContract]
         public partial class ParameterComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

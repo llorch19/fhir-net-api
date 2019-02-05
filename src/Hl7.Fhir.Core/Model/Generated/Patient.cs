@@ -81,7 +81,7 @@ namespace Hl7.Fhir.Model
             Seealso,
         }
 
-        [FhirType("ContactComponent")]
+        [FhirType("ContactComponent", ConstraintPath = "Patient.contact")]
         [DataContract]
         public partial class ContactComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -298,7 +298,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("AnimalComponent")]
+        [FhirType("AnimalComponent", ConstraintPath = "Patient.animal")]
         [DataContract]
         public partial class AnimalComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -421,7 +421,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("CommunicationComponent")]
+        [FhirType("CommunicationComponent", ConstraintPath = "Patient.communication")]
         [DataContract]
         public partial class CommunicationComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
@@ -545,7 +545,7 @@ namespace Hl7.Fhir.Model
         }
         
         
-        [FhirType("LinkComponent")]
+        [FhirType("LinkComponent", ConstraintPath = "Patient.link")]
         [DataContract]
         public partial class LinkComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

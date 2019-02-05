@@ -105,7 +105,7 @@ namespace Hl7.Fhir.Model
             EnteredInError,
         }
 
-        [FhirType("ImageComponent")]
+        [FhirType("ImageComponent", ConstraintPath = "DiagnosticReport.image")]
         [DataContract]
         public partial class ImageComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

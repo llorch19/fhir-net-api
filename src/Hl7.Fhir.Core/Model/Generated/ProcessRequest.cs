@@ -87,7 +87,7 @@ namespace Hl7.Fhir.Model
             Status,
         }
 
-        [FhirType("ItemsComponent")]
+        [FhirType("ItemsComponent", ConstraintPath = "ProcessRequest.item")]
         [DataContract]
         public partial class ItemsComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {

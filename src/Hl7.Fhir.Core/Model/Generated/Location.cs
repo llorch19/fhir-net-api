@@ -102,7 +102,7 @@ namespace Hl7.Fhir.Model
             Kind,
         }
 
-        [FhirType("PositionComponent")]
+        [FhirType("PositionComponent", ConstraintPath = "Location.position")]
         [DataContract]
         public partial class PositionComponent : Hl7.Fhir.Model.BackboneElement, System.ComponentModel.INotifyPropertyChanged, IBackboneElement
         {
