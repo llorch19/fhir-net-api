@@ -30,10 +30,6 @@
 
 using Hl7.Fhir.Validation;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 
 namespace Hl7.Fhir.Introspection
 {
@@ -60,5 +56,7 @@ namespace Hl7.Fhir.Introspection
         public string Profile { get; set; }
 
         public bool IsResource { get; set; }
+
+        public bool NamedBackboneElement { get; set; }
     }
 }

@@ -7,20 +7,16 @@
  */
 
 using Hl7.Fhir.Model;
-using Hl7.Fhir.Support;
 using Hl7.Fhir.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace Hl7.Fhir.Introspection
 {
     public class ClassMapping
     {
-        private const string RESOURCENAME_SUFFIX = "Resource";
-
         /// <summary>
         /// Name of the FHIR datatype/resource this class represents
         /// </summary>
@@ -47,6 +43,8 @@ namespace Hl7.Fhir.Introspection
         public bool IsBackbone { get; private set; }
 
         public bool IsAbstract { get; private set; }
+
+        public bool IsNamedBackboneElement { get; private set; }
 
         /// <summary>
         /// PropertyMappings indexed by uppercase name for access speed
@@ -115,9 +113,8 @@ namespace Hl7.Fhir.Introspection
                 result.Profile = getProfile(type);
                 result.IsResource = IsFhirResource(type);
                 result.IsAbstract = type.GetTypeInfo().IsAbstract;
-                result.IsCodeOfT = ReflectionHelper.IsClosedGenericType(type) &&
-                                    ReflectionHelper.IsConstructedFromGenericTypeDefinition(type, typeof(Code<>));
-
+                result.IsNamedBackboneElement = isNamedBackbone(type);
+                result.IsCodeOfT = type.CanBeTreatedAsType(typeof(ISystemAndCode));
                 result.IsBackbone = type.CanBeTreatedAsType(typeof(IBackboneElement));
 
                 if (!result.IsResource && !String.IsNullOrEmpty(result.Profile))
@@ -159,6 +156,9 @@ namespace Hl7.Fhir.Introspection
             me._orderedMappings = me._propMappings.Values.OrderBy(prop => prop.Order).ToList();
         }
 
+        private static bool isNamedBackbone(Type type) => 
+            type.GetTypeInfo().GetCustomAttribute<FhirTypeAttribute>()?.NamedBackboneElement == true;
+
 
         private static string getProfile(Type type) => 
             type.GetTypeInfo().GetCustomAttribute<FhirTypeAttribute>()?.Profile;
@@ -181,11 +181,7 @@ namespace Hl7.Fhir.Introspection
         public static bool IsFhirResource(Type type)
         {
             var attr = ReflectionHelper.GetAttribute<FhirTypeAttribute>(type.GetTypeInfo());
-            return typeof(Resource).GetTypeInfo().IsAssignableFrom(type.GetTypeInfo())
-                   || (attr != null && attr.IsResource);
-            //var attr = ReflectionHelper.GetAttribute<FhirTypeAttribute>(type);
-            //return typeof(Resource).IsAssignableFrom(type)
-            //       || (attr != null && attr.IsResource);
+            return (attr != null && attr.IsResource);
         }
 
 

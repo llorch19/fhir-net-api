@@ -6,12 +6,9 @@
  * available at https://raw.githubusercontent.com/FirelyTeam/fhir-net-api/master/LICENSE
  */
 
-using Hl7.Fhir.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 
 namespace Hl7.Fhir.Validation
 {
@@ -22,7 +19,9 @@ namespace Hl7.Fhir.Validation
             return new ValidationContext(value);
         }
 
-        public static void Validate(object value, bool recurse = false, Func<string, Resource> resolver = null)
+        public static void Validate(object value, bool recurse = false) => Validate(value, recurse, (Func<string,object>)null);
+
+        public static void Validate<T>(object value, bool recurse, Func<string, T> resolver)
         {
             if (value == null) throw new ArgumentNullException("value");
             //    assertSupportedInstanceType(value);
@@ -34,7 +33,13 @@ namespace Hl7.Fhir.Validation
             Validator.ValidateObject(value, validationContext, true);
         }
 
-        public static bool TryValidate(object value, ICollection<ValidationResult> validationResults = null, bool recurse = false, Func<string,Resource> resolver=null)
+        public static bool TryValidate(object value, ICollection<ValidationResult> validationResults = null, bool recurse = false)
+        {
+            return TryValidate(value, validationResults, recurse, (Func<string, object>)null);
+        }
+
+        public static bool TryValidate<T>(object value, ICollection<ValidationResult> validationResults, bool recurse, 
+            Func<string,T> resolver)
         {
             if (value == null) throw new ArgumentNullException("value");
           // assertSupportedInstanceType(value);
@@ -49,7 +54,7 @@ namespace Hl7.Fhir.Validation
         }
      
 
-        internal static ValidationResult BuildResult(ValidationContext context, string message, params object[] messageArgs)
+        public static ValidationResult BuildResult(ValidationContext context, string message, params object[] messageArgs)
         {
             var resultMessage = String.Format(message, messageArgs);
 

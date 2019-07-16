@@ -29,7 +29,7 @@ namespace Hl7.Fhir.Introspection
         public bool InSummary { get; private set; }
         public bool IsMandatoryElement { get; private set; }
 
-        public Type ImplementingType { get; private set; }
+        public Type ElementType { get; private set; }
         public bool IsBackboneElement { get; private set; }
 
         public int Order { get; private set; }
@@ -54,7 +54,7 @@ namespace Hl7.Fhir.Introspection
             var allowedTypes = prop.GetCustomAttribute<Validation.AllowedTypesAttribute>();
 
             result.Name = determinePropertyName(prop);
-            result.ImplementingType = prop.PropertyType;
+            result.ElementType = prop.PropertyType;
 
             result.InSummary = elementAttr?.InSummary ?? false;
             result.IsMandatoryElement = cardinalityAttr != null ? cardinalityAttr.Min > 0 : false;
@@ -69,12 +69,12 @@ namespace Hl7.Fhir.Introspection
             result.IsCollection = ReflectionHelper.IsTypedCollection(prop.PropertyType) && !prop.PropertyType.IsArray;
 
             // Get to the actual (native) type representing this element
-            if (result.IsCollection) result.ImplementingType = ReflectionHelper.GetCollectionItemType(prop.PropertyType);
-            if (ReflectionHelper.IsNullableType(result.ImplementingType)) result.ImplementingType = ReflectionHelper.GetNullableArgument(result.ImplementingType);
-            result.IsPrimitive = isAllowedNativeTypeForDataTypeValue(result.ImplementingType);
+            if (result.IsCollection) result.ElementType = ReflectionHelper.GetCollectionItemType(prop.PropertyType);
+            if (ReflectionHelper.IsNullableType(result.ElementType)) result.ElementType = ReflectionHelper.GetNullableArgument(result.ElementType);
+            result.IsPrimitive = isAllowedNativeTypeForDataTypeValue(result.ElementType);
 
-            result.IsBackboneElement = result.ImplementingType.CanBeTreatedAsType(typeof(IBackboneElement));
-            foundTypes.Add(result.ImplementingType);
+            result.IsBackboneElement = result.ElementType.CanBeTreatedAsType(typeof(IBackboneElement));
+            foundTypes.Add(result.ElementType);
 
             // Derive the C# type that represents which types are allowed for this element.
             // This may differ from the ImplementingType in several ways:
@@ -85,7 +85,7 @@ namespace Hl7.Fhir.Introspection
             else if (elementAttr?.TypeRedirect != null)
                 result.FhirType = new[] { elementAttr.TypeRedirect };
             else
-                result.FhirType = new[] { result.ImplementingType };
+                result.FhirType = new[] { result.ElementType };
 
             // Check wether this property represents a native .NET type
             // marked to receive the class' primitive value in the fhir serialization
@@ -141,21 +141,6 @@ namespace Hl7.Fhir.Introspection
             return isValueElement;
         }
 
-
-         //// Special case: this is a member that uses the closed generic Code<T> type - 
-         //       // do mapping for its open, defining type instead
-         //       if (elementType.IsGenericType)
-         //       {
-         //           if (ReflectionHelper.IsClosedGenericType(elementType) &&  
-         //               ReflectionHelper.IsConstructedFromGenericTypeDefinition(elementType, typeof(Code<>)) )
-         //           {
-         //               result.CodeOfTEnumType = elementType.GetGenericArguments()[0];
-         //               elementType = elementType.GetGenericTypeDefinition();
-         //           }
-         //           else
-         //               throw Error.NotSupported("Property {0} on type {1} uses an open generic type, which is not yet supported", prop.Name, prop.DeclaringType.Name);
-         //       }
-
         public bool MatchesSuffixedName(string suffixedName)
         {
             if (suffixedName == null) throw Error.ArgumentNull(nameof(suffixedName));
@@ -173,19 +158,6 @@ namespace Hl7.Fhir.Introspection
                 throw Error.Argument(nameof(suffixedName), "The given suffixed name {0} does not match this property's name {1}".FormatWith(suffixedName, Name));
         }
      
-        //public Type GetChoiceType(string choiceSuffix)
-        //{
-        //    string suffix = choiceSuffix.ToUpperInvariant();
-
-        //    if(!HasChoices) return null;
-
-        //    return _choices
-        //                .Where(cattr => cattr.TypeName.ToUpperInvariant() == suffix)
-        //                .Select(cattr => cattr.Type)
-        //                .FirstOrDefault(); 
-        //}
-   
-
         private static bool isAllowedNativeTypeForDataTypeValue(Type type)
         {
             // Special case, allow Nullable<enum>

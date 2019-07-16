@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Hl7.Fhir.Introspection;
-using Hl7.Fhir.Validation;
-using System.Linq;
-using System.Runtime.Serialization;
-
-/*
-  Copyright (c) 2011+, HL7, Inc.
+﻿/*
+  Copyright (c) 2011-2012, HL7, Inc
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -37,13 +30,13 @@ using System.Runtime.Serialization;
 
 namespace Hl7.Fhir.Model
 {
-    [FhirType("BackboneElement", IsResource = false)]
-    public abstract partial class BackboneElement : IModifierExtendable, IBackboneElement
+    /// <summary>
+    /// Provides a way to access the system and code from a Code&lt;T&gt; derived class, without having to mess
+    /// about with the generic types/additional nasty reflection
+    /// </summary>
+    public interface ISystemAndCode
     {
-    }
-    
-    public interface IBackboneElement
-    {
-
+        string System { get; }
+        string Code { get; }
     }
 }

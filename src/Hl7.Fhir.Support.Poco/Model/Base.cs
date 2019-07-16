@@ -35,7 +35,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Hl7.Fhir.Introspection;
-using System.Runtime.Serialization;
 using Hl7.Fhir.Utility;
 
 namespace Hl7.Fhir.Model
@@ -133,7 +132,7 @@ namespace Hl7.Fhir.Model
         /// Finally returns child nodes defined by the current class.
         /// </summary>
         [NotMapped]
-        public virtual IEnumerable<Base> Children { get { return Enumerable.Empty<Base>(); } }
+        public virtual IEnumerable<Base> Children => Enumerable.Empty<Base>();
 
         /// <summary>
         /// Enumerate all child nodes.
