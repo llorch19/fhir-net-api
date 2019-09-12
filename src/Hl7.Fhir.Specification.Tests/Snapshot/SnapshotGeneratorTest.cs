@@ -8354,5 +8354,79 @@ namespace Hl7.Fhir.Specification.Tests
 
         }
 
+        // [WMR 20190912] #1108 Type profile overrides element cardinality constraints
+        [TestMethod]
+        public void TestTypeProfileCardinality()
+        {
+            StructureDefinition QuantityProfile = new StructureDefinition()
+            {
+                Type = FHIRAllTypes.Quantity.GetLiteral(),
+                BaseDefinition = ModelInfo.CanonicalUriForFhirCoreType(FHIRAllTypes.Quantity),
+                Name = nameof(QuantityProfile),
+                Url = "http://example.org/fhir/StructureDefinition/" + nameof(QuantityProfile),
+                Derivation = StructureDefinition.TypeDerivationRule.Constraint,
+                Kind = StructureDefinition.StructureDefinitionKind.Resource,
+                Differential = new StructureDefinition.DifferentialComponent()
+                {
+                    Element = new List<ElementDefinition>()
+                    {
+                        new ElementDefinition("Quantity")
+                        {
+                            // Implied
+                            // Max = "*"
+                        }
+                    }
+                }
+            };
+
+            StructureDefinition RangeProfile = new StructureDefinition()
+            {
+                Type = FHIRAllTypes.Range.GetLiteral(),
+                BaseDefinition = ModelInfo.CanonicalUriForFhirCoreType(FHIRAllTypes.Range),
+                Name = nameof(RangeProfile),
+                Url = "http://example.org/fhir/StructureDefinition/" + nameof(RangeProfile),
+                Derivation = StructureDefinition.TypeDerivationRule.Constraint,
+                Kind = StructureDefinition.StructureDefinitionKind.Resource,
+                Differential = new StructureDefinition.DifferentialComponent()
+                {
+                    Element = new List<ElementDefinition>()
+                    {
+                        new ElementDefinition("Range.high")
+                        {
+                            Min = 1,
+                            // Inherited from Range base definition
+                            //Max = "1",
+                            Type = new List<ElementDefinition.TypeRefComponent>()
+                            {
+                                new ElementDefinition.TypeRefComponent()
+                                {
+                                    Code = FHIRAllTypes.Quantity.GetLiteral(),
+                                    Profile = new string[] { QuantityProfile.Url }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            var resolver = new InMemoryProfileResolver(QuantityProfile, RangeProfile);
+            var multiResolver = new MultiResolver(_testResolver, resolver);
+            _generator = new SnapshotGenerator(multiResolver, _settings);
+
+            generateSnapshotAndCompare(RangeProfile, out StructureDefinition expanded);
+            Assert.IsNotNull(expanded);
+            Assert.IsTrue(expanded.HasSnapshot);
+
+            dumpElements(expanded.Snapshot.Element);
+
+            var nav = ElementDefinitionNavigator.ForSnapshot(expanded);
+            Assert.IsTrue(nav.MoveToFirstChild());
+            Assert.IsTrue(nav.MoveToChild("low"));
+            Assert.AreEqual("1", nav.Current.Max);
+            // Bug: type profile root element cardinality "*" overrides base profile element cardinality "1"
+            Assert.IsTrue(nav.MoveToNext("high"));
+            Assert.AreEqual("1", nav.Current.Max);
+        }
+
     }
 }

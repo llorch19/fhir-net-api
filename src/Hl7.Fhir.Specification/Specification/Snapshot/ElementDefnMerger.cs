@@ -116,6 +116,8 @@ namespace Hl7.Fhir.Specification.Snapshot
                 // Aliases are cumulative based on the string value
                 snap.AliasElement = mergePrimitiveCollection(snap.AliasElement, diff.AliasElement, matchStringValues);
 
+                Debug.Assert(!diff.Min.HasValue || diff.Min.Value >= snap.Min);
+                Debug.Assert(diff.Max != "*" || snap.Max == "*");
                 snap.MinElement = mergePrimitiveElement(snap.MinElement, diff.MinElement);
                 snap.MaxElement = mergePrimitiveElement(snap.MaxElement, diff.MaxElement);
 
