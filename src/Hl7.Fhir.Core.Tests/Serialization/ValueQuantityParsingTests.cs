@@ -1,7 +1,8 @@
-﻿using Hl7.Fhir.Model;
+using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
 using Hl7.Fhir.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Hl7.Fhir.Tests.Serialization
@@ -48,7 +49,7 @@ namespace Hl7.Fhir.Tests.Serialization
             var orgExample = resource.Differential.Element[0].Example[0];
             Assert.AreEqual("Quantity", orgExample.Value.TypeName);
 
-            var parsed = xml ? XmlRoundTrip(resource) : JsonRoundTrip(resource);
+            var parsed = xml ? XmlRoundTrip(resource) : JsonRoundTrip(resource);    
 
             Assert.IsNotNull(parsed);
             Assert.IsNotNull(parsed.Differential?.Element);
@@ -98,6 +99,41 @@ namespace Hl7.Fhir.Tests.Serialization
             Directory.CreateDirectory(baseTestPath);
             return baseTestPath;
         }
+
+        [TestMethod]
+        public void SerializeValueSimpleQuantity()
+        {
+            var medication = new MedicationRequest
+            {
+                DosageInstruction = new List<Dosage>
+                {
+                    new Dosage
+                    {
+                        Dose = new SimpleQuantity
+                        {
+                            Value = 1,
+                            Unit = "mg"
+                        }
+                    },
+                    new Dosage
+                    {
+                        Dose = new Quantity
+                        {
+                            Value = 2,
+                            Unit = "mg",
+                            Comparator = Quantity.QuantityComparator.LessThan
+                        }
+                    }
+                }
+            };
+
+            var xml = new FhirXmlSerializer().SerializeToString(medication);
+            Assert.IsTrue(xml.Contains("<doseQuantity>"));
+            Assert.IsFalse(xml.Contains("<doseSimpleQuantity>"));
+
+        }
+
+
 
     }
 }
