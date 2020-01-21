@@ -1,8 +1,10 @@
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
 using Hl7.Fhir.Utility;
+using Hl7.Fhir.Validation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 
 namespace Hl7.Fhir.Tests.Serialization
@@ -130,7 +132,62 @@ namespace Hl7.Fhir.Tests.Serialization
             var xml = new FhirXmlSerializer().SerializeToString(medication);
             Assert.IsTrue(xml.Contains("<doseQuantity>"));
             Assert.IsFalse(xml.Contains("<doseSimpleQuantity>"));
+        }
 
+        [TestMethod]
+        public void FhirDeserialization_ProducesDoseAsQuantity_AndFailsAllowedTypeValidation()
+        {
+            // Arrange
+            var medicationStatement = generateMedicationStatementWithDose();
+            var serializer = new FhirJsonSerializer();
+            var json = serializer.SerializeToString(medicationStatement);
+            var parser = new FhirJsonParser();
+            var results = new List<ValidationResult>();
+
+            // Act
+            var medicationStatementDeserialized = parser.Parse<MedicationStatement>(json);
+
+            // Assert
+            // (1) Show the types of the original and deserialized Dose property. They should be the same.
+            var origDoseAsElement = medicationStatement.Dosage[0].Dose;
+            Assert.IsTrue(origDoseAsElement.TypeName == "SimpleQuantity");
+            var doseAsElement = medicationStatementDeserialized.Dosage[0].Dose;
+            Assert.IsTrue(doseAsElement.TypeName == "Quantity");
+
+            // (2) Show that validation fails, with error in AllowedType validation
+            var isValid = DotNetAttributeValidation.TryValidate(medicationStatementDeserialized, results, true);
+            Assert.IsTrue(isValid); // expect to pass
+            //isValid.Should().BeFalse(); // woops
+            //results[0].ErrorMessage.Should().Be("Value is of type Hl7.Fhir.Model.Quantity, which is not an allowed choice");
+            //results[0].MemberNames.First().Should().Be("Dose");
+
+        }
+
+
+        private static MedicationStatement generateMedicationStatementWithDose()
+        {
+            var dose = new SimpleQuantity
+            {
+                Value = (decimal?)1.0,
+                System = "http://unitsofmeasure.org",
+                Code = "{tbl}"
+            };
+
+            var dosage = new Dosage
+            {               
+                Dose = dose 
+            };
+            var ms = new MedicationStatement
+            {
+                // Min = 1 for Status, Subject, Medication
+                Status = MedicationStatement.MedicationStatementStatus.Intended,
+                Subject = new ResourceReference("Patient/123"),
+                Medication = new ResourceReference("#med0309"),
+                Dosage = new List<Dosage> { dosage },
+                Taken = MedicationStatement.MedicationStatementTaken.Y
+            };
+
+            return ms;
         }
 
 
